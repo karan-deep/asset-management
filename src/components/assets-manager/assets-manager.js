@@ -132,6 +132,12 @@ class AssetManager extends Component {
                 </button>
               </div>
             </div>
+            <AssetEditor
+              show={this.state.show}
+              selectedAssetId={this.state.selectedAssetId}
+              type={this.state.type}
+              closeAssetModalEditor={this.closeAssetModalEditor}
+            />
           </div>
         </div>
       </div>

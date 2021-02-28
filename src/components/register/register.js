@@ -130,6 +130,12 @@ class Register extends Component {
       errors: errors,
     });
   }
+
+  onRegister(event) {
+    event.preventDefault();
+    this.isFormSubmitted = true;
+    this.validatingInput();
+  }
 }
 
 export default Register;

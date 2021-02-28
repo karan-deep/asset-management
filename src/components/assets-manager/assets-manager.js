@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import assetService from "../../services/assets";
 import authService from "../../services/auth";
 
@@ -35,6 +36,13 @@ class AssetManager extends Component {
     }
   }
 
+  openAssetModalEditor(type, selectedAssetId) {
+    this.setState({
+      show: true,
+      type: type,
+      selectedAssetId: selectedAssetId,
+    });
+  }
   render() {
     return (
       <div className="container-fluid">

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import validator from "validator";
+import assetService from "../../../services/assets";
 
 class AssetEditor extends Component {
   constructor(props) {

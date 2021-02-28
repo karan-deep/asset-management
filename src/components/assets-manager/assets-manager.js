@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import AssetEditor from "./assets-editor/assets-editor";
 import assetService from "../../services/assets";
 import authService from "../../services/auth";
 
@@ -129,6 +130,16 @@ class AssetManager extends Component {
                   onClick={() => this.openAssetModalEditor("New")}
                 >
                   Add
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary mb-4"
+                  onClick={() => {
+                    authService.isLogin = false;
+                    this.props.history.push("/login");
+                  }}
+                >
+                  Log Out
                 </button>
               </div>
             </div>

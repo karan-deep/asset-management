@@ -65,6 +65,7 @@ class AssetManager extends Component {
                           <td>{item.id}</td>
                           <td>{item.name}</td>
                           <td>
+                            {item.assetTypeId === 1 ? "Hardware" : "Software"}
                           </td>
                           <td>{item.description}</td>
                           <td>{item.price}</td>

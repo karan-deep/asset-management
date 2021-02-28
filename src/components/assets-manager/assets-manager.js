@@ -54,6 +54,9 @@ class AssetManager extends Component {
     this.setState({
       show: false,
     });
+    if (refresh) {
+      this.getAllAssets();
+    }
   }
 
   render() {

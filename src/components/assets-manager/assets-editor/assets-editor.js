@@ -216,6 +216,7 @@ class AssetEditor extends Component {
                 <Form.Control
                   type="text"
                   name="name"
+                  value={this.state.formData.name}
                   placeholder="Enter name"
                   required
                 />
@@ -225,6 +226,7 @@ class AssetEditor extends Component {
                 <Form.Control
                   as="select"
                   name="assetTypeId"
+                  value={this.state.formData.assetTypeId || ""}
                   required
                 >
                   <option value="" disabled>
@@ -241,6 +243,7 @@ class AssetEditor extends Component {
                 as="textarea"
                 rows={3}
                 name="description"
+                value={this.state.formData.description}
                 placeholder="Enter description"
                 required
               />
@@ -251,6 +254,7 @@ class AssetEditor extends Component {
                 <Form.Control
                   type="number"
                   name="price"
+                  value={this.state.formData.price || ""}
                   placeholder="Enter price"
                   required
                 />
@@ -260,6 +264,7 @@ class AssetEditor extends Component {
                 <Form.Control
                   type="date"
                   name="purchaseDate"
+                  value={this.state.formData.purchaseDate}
                   required
                 />
               </Form.Group>

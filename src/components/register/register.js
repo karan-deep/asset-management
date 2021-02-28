@@ -154,6 +154,7 @@ class Register extends Component {
             </div>
             <form
               className="login100-form"
+              onSubmit={this.onRegister}
             >
               <div
                 className={

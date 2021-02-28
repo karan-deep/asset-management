@@ -25,6 +25,17 @@ class Login extends Component {
     this.onLogin = this.onLogin.bind(this);
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      authService.isLogin = true;
+      authService.token = localStorage.getItem("token");
+      const { state } = this.props.location;
+      if (state && state.from && state.from.pathname) {
+        this.props.history.push(state.from.pathname);
+      }
+    }
+  }
+
   async onLogin(event) {
     event.preventDefault();
     this.isFormSubmitted = true;

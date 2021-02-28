@@ -20,6 +20,13 @@ class Register extends Component {
         response: "",
       },
     };
+    this.isFormSubmitted = false;
+    this.isValid = false;
+    this.onValueChange = this.onValueChange.bind(this);
+    this.onRegister = this.onRegister.bind(this);
+    this.validatingInput = this.validatingInput.bind(this);
+  }
+
   onValueChange(event) {
     const { formData } = this.state;
     this.setState(

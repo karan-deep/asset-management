@@ -5,6 +5,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import authService from "./services/auth";
+import axios from "axios";
+
+axios.interceptors.request.use((request) => {
+  if (authService.isLogin) {
+    request.headers.Authorization = `Bearer ${authService.token}`;
+  }
+  return request;
+});
 
 ReactDOM.render(
   <BrowserRouter>

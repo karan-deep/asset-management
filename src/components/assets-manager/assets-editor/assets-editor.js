@@ -23,6 +23,13 @@ class AssetEditor extends Component {
         purchaseDate: false,
       },
     };
+
+  checkGetAssetOperationType() {
+    if (this.props.type === "Edit") {
+      this.getAssetById(this.props.selectedAssetId);
+    }
+  }
+
   onValueChange(event) {
     const { formData } = this.state;
     this.setState(

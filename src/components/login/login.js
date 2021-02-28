@@ -16,6 +16,20 @@ class Login extends Component {
       },
     };
 
+  onValueChange(event) {
+    const { formData } = this.state;
+    this.setState(
+      {
+        formData: {
+          ...formData, // leaving other values unchanged
+          [event.target.name]: event.target.value, // updating changed value
+        },
+      },
+      () => {
+      }
+    );
+  }
+
   validatingInput() {
     this.isValid = true;
     let { formData, errors } = this.state;

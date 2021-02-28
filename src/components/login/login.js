@@ -4,6 +4,16 @@ import "./login.css";
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      formData: {
+        email: "",
+        password: "",
+      },
+      errors: {
+        email: "",
+        password: "",
+      },
+    };
   }
 
   render() {

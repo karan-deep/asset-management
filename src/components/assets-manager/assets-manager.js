@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import assetService from "../../services/assets";
+import authService from "../../services/auth";
 
 class AssetManager extends Component {
   constructor(props) {
@@ -55,6 +57,36 @@ class AssetManager extends Component {
                   </tr>
                 </thead>
                 <tbody>
+                  {this.state.assets &&
+                    this.state.assets.length &&
+                    this.state.assets.map((item) => {
+                      return (
+                        <tr key={item.id}>
+                          <td>{item.id}</td>
+                          <td>{item.name}</td>
+                          <td>
+                          </td>
+                          <td>{item.description}</td>
+                          <td>{item.price}</td>
+                          <td>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-primary"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-danger"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>

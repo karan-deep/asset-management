@@ -16,6 +16,11 @@ class AssetManager extends Component {
     this.closeAssetModalEditor = this.closeAssetModalEditor.bind(this);
     this.getAllAssets = this.getAllAssets.bind(this);
   }
+
+  componentDidMount() {
+    this.getAllAssets();
+  }
+
   async getAllAssets() {
     try {
       const assets = await assetService.getAssets();

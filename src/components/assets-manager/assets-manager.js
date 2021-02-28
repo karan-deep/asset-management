@@ -105,6 +105,7 @@ class AssetManager extends Component {
                             <button
                               type="button"
                               className="btn btn-danger"
+                              onClick={() => this.deleteAsset(asset.id)}
                             >
                               Delete
                             </button>

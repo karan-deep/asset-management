@@ -120,6 +120,7 @@ class Login extends Component {
                   type="email"
                   name="email"
                   placeholder="Enter email"
+                  value={this.state.formData.email}
                 />
                 <span className="focus-input100"></span>
               </div>
@@ -130,6 +131,7 @@ class Login extends Component {
                   type="password"
                   name="password"
                   placeholder="Enter password"
+                  value={this.state.formData.password}
                 />
                 <span className="focus-input100"></span>
               </div>

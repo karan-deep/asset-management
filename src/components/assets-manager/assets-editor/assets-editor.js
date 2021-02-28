@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { Modal, Button, Form, Col } from "react-bootstrap";
 import validator from "validator";
 import assetService from "../../../services/assets";
 
@@ -192,7 +193,88 @@ class AssetEditor extends Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <Modal
+        show={this.props.show}
+        size="lg"
+      >
+        <Form noValidate onSubmit={this.onSaveAsset}>
+          <Modal.Header closeButton>
+            <Modal.Title>{this.props.type} Asset</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  placeholder="Enter name"
+                  required
+                />
+              </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label>Asset Type</Form.Label>
+                <Form.Control
+                  as="select"
+                  name="assetTypeId"
+                  required
+                >
+                  <option value="" disabled>
+                    Select a Asset Type
+                  </option>
+                  <option value="1">Hardware</option>
+                  <option value="2">Software</option>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Group>
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                name="description"
+                placeholder="Enter description"
+                required
+              />
+            </Form.Group>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="price"
+                  placeholder="Enter price"
+                  required
+                />
+              </Form.Group>
+              <Form.Group as={Col}>
+                <Form.Label>Purchase Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="purchaseDate"
+                  required
+                />
+              </Form.Group>
+            </Form.Row>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="danger"
+              onClick={() => {
+                this.resetFormValidation();
+                this.props.closeAssetModalEditor(false);
+              }}
+            >
+              Close
+            </Button>
+            <Button variant="primary" type="submit">
+              Save
+            </Button>
+          </Modal.Footer>
+        </Form>
+      </Modal>
+    );
   }
 }
 

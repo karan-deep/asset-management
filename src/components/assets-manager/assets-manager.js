@@ -13,7 +13,7 @@ class AssetManager extends Component {
       type: "",
     };
     this.openAssetModalEditor = this.openAssetModalEditor.bind(this);
-    this.closeModalEditor = this.closeModalEditor.bind(this);
+    this.closeAssetModalEditor = this.closeAssetModalEditor.bind(this);
     this.getAllAssets = this.getAllAssets.bind(this);
   }
   async getAllAssets() {
@@ -43,6 +43,13 @@ class AssetManager extends Component {
       selectedAssetId: selectedAssetId,
     });
   }
+
+  closeAssetModalEditor(refresh) {
+    this.setState({
+      show: false,
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">

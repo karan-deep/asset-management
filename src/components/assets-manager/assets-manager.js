@@ -107,6 +107,11 @@ class AssetManager extends Component {
                 </tbody>
               </table>
             </div>
+            {this.state.assets && !this.state.assets.length && (
+              <div className="alert alert-warning" role="alert">
+                No Assets Found!
+              </div>
+            )}
             <div className="row">
               <div className="col-sm-12 d-flex justify-content-between">
                 <button

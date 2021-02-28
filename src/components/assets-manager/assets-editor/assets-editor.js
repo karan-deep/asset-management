@@ -216,17 +216,22 @@ class AssetEditor extends Component {
                 <Form.Control
                   type="text"
                   name="name"
+                  isInvalid={this.state.errors.name}
                   onChange={this.onValueChange}
                   value={this.state.formData.name}
                   placeholder="Enter name"
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Name is required.
+                </Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col}>
                 <Form.Label>Asset Type</Form.Label>
                 <Form.Control
                   as="select"
                   name="assetTypeId"
+                  isInvalid={this.state.errors.assetTypeId}
                   onChange={this.onValueChange}
                   value={this.state.formData.assetTypeId || ""}
                   required
@@ -237,6 +242,9 @@ class AssetEditor extends Component {
                   <option value="1">Hardware</option>
                   <option value="2">Software</option>
                 </Form.Control>
+                <Form.Control.Feedback type="invalid">
+                  Asset Type is required.
+                </Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
             <Form.Group>
@@ -245,11 +253,17 @@ class AssetEditor extends Component {
                 as="textarea"
                 rows={3}
                 name="description"
+                isInvalid={this.state.errors.description}
                 onChange={this.onValueChange}
                 value={this.state.formData.description}
                 placeholder="Enter description"
                 required
               />
+              {this.state.errors.description && (
+                <Form.Control.Feedback type="invalid">
+                  Description is required.
+                </Form.Control.Feedback>
+              )}
             </Form.Group>
             <Form.Row>
               <Form.Group as={Col}>
@@ -257,21 +271,29 @@ class AssetEditor extends Component {
                 <Form.Control
                   type="number"
                   name="price"
+                  isInvalid={this.state.errors.price}
                   onChange={this.onValueChange}
                   value={this.state.formData.price || ""}
                   placeholder="Enter price"
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Price is required.
+                </Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col}>
                 <Form.Label>Purchase Date</Form.Label>
                 <Form.Control
                   type="date"
                   name="purchaseDate"
+                  isInvalid={this.state.errors.purchaseDate}
                   onChange={this.onValueChange}
                   value={this.state.formData.purchaseDate}
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Purchase Date is required.
+                </Form.Control.Feedback>
               </Form.Group>
             </Form.Row>
           </Modal.Body>

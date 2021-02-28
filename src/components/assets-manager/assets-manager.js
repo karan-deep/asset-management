@@ -139,6 +139,7 @@ class AssetManager extends Component {
                   className="btn btn-secondary mb-4"
                   onClick={() => {
                     authService.isLogin = false;
+                    localStorage.clear();
                     this.props.history.push("/login");
                   }}
                 >

@@ -70,6 +70,7 @@ class AssetManager extends Component {
                           <td>{item.description}</td>
                           <td>{item.price}</td>
                           <td>
+                            {moment(item.purchaseDate).format("DD MMM,YYYY")}
                           </td>
                           <td>
                             <button

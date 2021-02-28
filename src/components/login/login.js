@@ -26,6 +26,9 @@ class Login extends Component {
         },
       },
       () => {
+        if (this.isFormSubmitted) {
+          this.validatingInput();
+        }
       }
     );
   }

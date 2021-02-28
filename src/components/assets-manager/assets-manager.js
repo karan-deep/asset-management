@@ -79,23 +79,26 @@ class AssetManager extends Component {
                 <tbody>
                   {this.state.assets &&
                     this.state.assets.length &&
-                    this.state.assets.map((item) => {
+                    this.state.assets.map((asset) => {
                       return (
-                        <tr key={item.id}>
-                          <td>{item.id}</td>
-                          <td>{item.name}</td>
+                        <tr key={asset.id}>
+                          <td>{asset.id}</td>
+                          <td>{asset.name}</td>
                           <td>
-                            {item.assetTypeId === 1 ? "Hardware" : "Software"}
+                            {asset.assetTypeId === 1 ? "Hardware" : "Software"}
                           </td>
-                          <td>{item.description}</td>
-                          <td>{item.price}</td>
+                          <td>{asset.description}</td>
+                          <td>{asset.price}</td>
                           <td>
-                            {moment(item.purchaseDate).format("DD MMM,YYYY")}
+                            {moment(asset.purchaseDate).format("DD MMM,YYYY")}
                           </td>
                           <td>
                             <button
                               type="button"
                               className="btn btn-primary"
+                              onClick={() =>
+                                this.openAssetModalEditor("Edit", asset.id)
+                              }
                             >
                               Edit
                             </button>
@@ -122,6 +125,7 @@ class AssetManager extends Component {
                 <button
                   type="button"
                   className="btn btn-warning mb-4"
+                  onClick={() => this.openAssetModalEditor("New")}
                 >
                   Add
                 </button>

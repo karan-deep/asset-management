@@ -112,7 +112,7 @@ class Login extends Component {
             <div className="login100-form-title">
               <span className="login100-form-title-1">Sign In</span>
             </div>
-            <form className="login100-form" onSubmit={this.onLogin}>
+            <form className="login100-form" onSubmit={this.onLogin} noValidate>
               <div className="wrap-input100">
                 <span className="label-input100">Email</span>
                 <input

@@ -155,6 +155,7 @@ class Register extends Component {
             <form
               className="login100-form"
               onSubmit={this.onRegister}
+              noValidate
             >
               <div
                 className={

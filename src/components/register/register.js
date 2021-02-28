@@ -227,6 +227,9 @@ class Register extends Component {
                   </small>
                 </div>
               )}
+              <div className="container-login100-form-btn mt-2">
+                <PasswordStrengthBar password={this.state.formData.password} />
+              </div>
               <div className="container-login100-form-btn mt-4">
                 <button type="submit" className="login100-form-btn">
                   Register

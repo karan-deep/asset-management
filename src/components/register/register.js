@@ -172,6 +172,14 @@ class Register extends Component {
                   value={this.state.formData.email}
                 />
                 <span className="focus-input100"></span>
+              </div>
+              {this.state.errors.email && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.email}
+                  </small>
+                </div>
+              )}
               <div
                 className={
                   "wrap-input100 " + (!this.state.errors.password ? "mb-3" : "")
@@ -188,6 +196,13 @@ class Register extends Component {
                 />
                 <span className="focus-input100"></span>
               </div>
+              {this.state.errors.password && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.password}
+                  </small>
+                </div>
+              )}
               <div
                 className={
                   "wrap-input100 " +
@@ -205,6 +220,13 @@ class Register extends Component {
                 />
                 <span className="focus-input100"></span>
               </div>
+              {this.state.errors.confirmPassword && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.confirmPassword}
+                  </small>
+                </div>
+              )}
               <div className="container-login100-form-btn mt-4">
                 <button type="submit" className="login100-form-btn">
                   Register

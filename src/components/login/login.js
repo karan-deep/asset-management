@@ -113,7 +113,11 @@ class Login extends Component {
               <span className="login100-form-title-1">Sign In</span>
             </div>
             <form className="login100-form" onSubmit={this.onLogin} noValidate>
-              <div className="wrap-input100">
+              <div
+                className={
+                  "wrap-input100 " + (!this.state.errors.email ? "mb-3" : "")
+                }
+              >
                 <span className="label-input100">Email</span>
                 <input
                   className="input100"
@@ -133,6 +137,11 @@ class Login extends Component {
                   </small>
                 </div>
               )}
+              <div
+                className={
+                  "wrap-input100 " + (!this.state.errors.password ? "mb-3" : "")
+                }
+              >
                 <span className="label-input100">Password</span>
                 <input
                   className="input100"

@@ -171,6 +171,26 @@ class AssetEditor extends Component {
     }
   }
 
+  resetFormValidation() {
+    this.isFormSubmitted = false;
+    this.setState({
+      formData: {
+        name: "",
+        assetTypeId: "",
+        price: "",
+        description: "",
+        purchaseDate: "",
+      },
+      errors: {
+        name: false,
+        assetTypeId: false,
+        price: false,
+        description: false,
+        purchaseDate: false,
+      },
+    });
+  }
+
   render() {
     return <div></div>;
   }

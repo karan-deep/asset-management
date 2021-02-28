@@ -36,6 +36,89 @@ class AssetEditor extends Component {
       }
     );
   }
+
+  validatingInput() {
+    let isValid = true;
+    let { formData, errors } = this.state;
+    const { name, assetTypeId, price, description, purchaseDate } = formData;
+    if (validator.isEmpty(name)) {
+      // validation for name required
+      isValid = false;
+      errors = {
+        ...errors,
+        name: true,
+      };
+    } else {
+      errors = {
+        ...errors,
+        name: false,
+      };
+    }
+    if (!assetTypeId) {
+      // validation for assetTypeId required
+      isValid = false;
+      errors = {
+        ...errors,
+        assetTypeId: true,
+      };
+    } else {
+      errors = {
+        ...errors,
+        assetTypeId: false,
+      };
+    }
+    if (!price) {
+      // validation for price required
+      isValid = false;
+      errors = {
+        ...errors,
+        price: true,
+      };
+    } else {
+      errors = {
+        ...errors,
+        price: false,
+      };
+    }
+    if (validator.isEmpty(description)) {
+      // validation for description required
+      isValid = false;
+      errors = {
+        ...errors,
+        description: true,
+      };
+    } else {
+      errors = {
+        ...errors,
+        description: false,
+      };
+    }
+    if (validator.isEmpty(purchaseDate)) {
+      // validation for purchaseDate required
+      isValid = false;
+      errors = {
+        ...errors,
+        purchaseDate: true,
+      };
+    } else {
+      errors = {
+        ...errors,
+        purchaseDate: false,
+      };
+    }
+    if (isValid) {
+      errors = {
+        name: false,
+        assetTypeId: false,
+        price: false,
+        description: false,
+        purchaseDate: false,
+      };
+    }
+    this.setState({
+      errors: errors,
+    });
+  }
   render() {
     return <div></div>;
   }

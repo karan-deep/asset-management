@@ -31,7 +31,44 @@ class AssetManager extends Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div className="container-fluid">
+        <div className="row d-flex justify-content-center mt-5">
+          <div className="col-sm-12">
+            <div>
+              <h1>Assets</h1>
+            </div>
+            <div className="table-responsive">
+              <table className="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Asset Type</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Purchase Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div className="row">
+              <div className="col-sm-12 d-flex justify-content-between">
+                <button
+                  type="button"
+                  className="btn btn-warning mb-4"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

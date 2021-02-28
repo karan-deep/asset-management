@@ -122,10 +122,17 @@ class Login extends Component {
                   placeholder="Enter email"
                   onChange={this.onValueChange}
                   value={this.state.formData.email}
+                  required
                 />
                 <span className="focus-input100"></span>
               </div>
-              <div className="wrap-input100">
+              {this.state.errors.email && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.email}
+                  </small>
+                </div>
+              )}
                 <span className="label-input100">Password</span>
                 <input
                   className="input100"
@@ -134,9 +141,17 @@ class Login extends Component {
                   placeholder="Enter password"
                   onChange={this.onValueChange}
                   value={this.state.formData.password}
+                  required
                 />
                 <span className="focus-input100"></span>
               </div>
+              {this.state.errors.password && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.password}
+                  </small>
+                </div>
+              )}
               <div className="container-login100-form-btn mt-3">
                 <button type="submit" className="login100-form-btn">
                   Login

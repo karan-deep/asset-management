@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PasswordStrengthBar from "react-password-strength-bar";
+import validator from "validator";
+import "../login/login.css";
 
 class Register extends Component {
   constructor(props) {

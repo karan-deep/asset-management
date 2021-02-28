@@ -15,6 +15,64 @@ class Login extends Component {
         password: "",
       },
     };
+
+  validatingInput() {
+    this.isValid = true;
+    let { formData, errors } = this.state;
+    const { username, password } = formData;
+    if (validator.isEmpty(username)) {
+      // validation for username required
+      this.isValid = false;
+      errors = {
+        ...errors,
+        username: "Email is required",
+      };
+    } else {
+      if (!validator.isEmail(username)) {
+        // validation for valid email
+        this.isValid = false;
+        errors = {
+          ...errors,
+          username: "Email must be a valid email address",
+        };
+      } else {
+        errors = {
+          ...errors,
+          username: "",
+        };
+      }
+    }
+    if (validator.isEmpty(password)) {
+      // validation for password required
+      this.isValid = false;
+      errors = {
+        ...errors,
+        password: "Password is required",
+      };
+    } else {
+      if (!validator.isLength(password, { min: 6 })) {
+        // validation for minimum password length
+        this.isValid = false;
+        errors = {
+          ...errors,
+          password: "Password must be at least 6 characters",
+        };
+      } else {
+        errors = {
+          ...errors,
+          password: "",
+        };
+      }
+    }
+    if (this.isValid) {
+      errors = {
+        username: "",
+        password: "",
+      };
+    }
+    this.setState({
+      errors: errors,
+    });
   }
 
   render() {

@@ -20,6 +20,16 @@ class AssetManager extends Component {
       console.error(error);
     }
   }
+
+  async deleteAsset(id) {
+    try {
+      await assetService.delete(id);
+      await this.getAllAssets();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     return <div></div>;
   }

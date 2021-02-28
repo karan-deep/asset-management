@@ -120,6 +120,7 @@ class Login extends Component {
                   type="email"
                   name="email"
                   placeholder="Enter email"
+                  onChange={this.onValueChange}
                   value={this.state.formData.email}
                 />
                 <span className="focus-input100"></span>
@@ -131,6 +132,7 @@ class Login extends Component {
                   type="password"
                   name="password"
                   placeholder="Enter password"
+                  onChange={this.onValueChange}
                   value={this.state.formData.password}
                 />
                 <span className="focus-input100"></span>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import validator from "validator";
 import "./login.css";
 
 class Login extends Component {

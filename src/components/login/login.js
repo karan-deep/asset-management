@@ -15,6 +15,11 @@ class Login extends Component {
         password: "",
       },
     };
+  onLogin(event) {
+    event.preventDefault();
+    this.isFormSubmitted = true;
+    this.validatingInput();
+  }
 
   onValueChange(event) {
     const { formData } = this.state;
@@ -36,26 +41,26 @@ class Login extends Component {
   validatingInput() {
     this.isValid = true;
     let { formData, errors } = this.state;
-    const { username, password } = formData;
-    if (validator.isEmpty(username)) {
-      // validation for username required
+    const { email, password } = formData;
+    if (validator.isEmpty(email)) {
+      // validation for email required
       this.isValid = false;
       errors = {
         ...errors,
-        username: "Email is required",
+        email: "Email is required",
       };
     } else {
-      if (!validator.isEmail(username)) {
+      if (!validator.isEmail(email)) {
         // validation for valid email
         this.isValid = false;
         errors = {
           ...errors,
-          username: "Email must be a valid email address",
+          email: "Email must be a valid email address",
         };
       } else {
         errors = {
           ...errors,
-          username: "",
+          email: "",
         };
       }
     }
@@ -83,7 +88,7 @@ class Login extends Component {
     }
     if (this.isValid) {
       errors = {
-        username: "",
+        email: "",
         password: "",
       };
     }

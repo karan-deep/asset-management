@@ -15,6 +15,22 @@ class Register extends Component {
         confirmPassword: "",
       },
     };
+  onValueChange(event) {
+    const { formData } = this.state;
+    this.setState(
+      {
+        formData: {
+          ...formData, // leaving other values unchanged
+          [event.target.name]: event.target.value, // updating changed value
+        },
+      },
+      () => {
+        if (this.isFormSubmitted) {
+          this.validatingInput();
+        }
+      }
+    );
+  }
   render() {
     return <div></div>;
   }

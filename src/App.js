@@ -3,6 +3,7 @@ import "./App.css";
 import AssetManager from "./components/assets-manager/assets-manager";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
+import { ProtectedRoute } from "./routes/protected-route";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Switch>
         <Route path="/login" component={Login} exact />
         <Route path="/register" component={Register} exact />
-        <Route path="/assets" component={AssetManager} exact />
+        <ProtectedRoute exact path="/assets" component={AssetManager} />
         <Redirect to="/login" />
       </Switch>
     </main>

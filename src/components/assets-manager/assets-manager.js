@@ -10,6 +10,16 @@ class AssetManager extends Component {
       type: "",
     };
   }
+  async getAllAssets() {
+    try {
+      const assets = await assetService.getAssets();
+      this.setState({
+        assets: assets.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   render() {
     return <div></div>;
   }

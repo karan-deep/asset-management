@@ -41,6 +41,7 @@ class Login extends Component {
         if (response && response.data) {
           authService.isLogin = true;
           authService.token = response.data.token;
+          localStorage.setItem("token", response.data.token);
           this.props.history.push("/assets");
         }
       } catch (error) {

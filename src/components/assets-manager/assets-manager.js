@@ -9,6 +9,9 @@ class AssetManager extends Component {
       selectedAssetId: undefined,
       type: "",
     };
+    this.openAssetModalEditor = this.openAssetModalEditor.bind(this);
+    this.closeModalEditor = this.closeModalEditor.bind(this);
+    this.getAllAssets = this.getAllAssets.bind(this);
   }
   async getAllAssets() {
     try {

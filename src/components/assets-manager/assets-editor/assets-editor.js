@@ -121,6 +121,20 @@ class AssetEditor extends Component {
       errors: errors,
     });
   }
+
+  async getAssetById(id) {
+    try {
+      let asset = await assetService.getAsset(id);
+      asset.data.purchaseDate = moment(asset.data.purchaseDate).format(
+        "yyyy-MM-DD"
+      );
+      this.setState({
+        formData: asset.data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   render() {
     return <div></div>;
   }

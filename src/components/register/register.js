@@ -254,6 +254,13 @@ class Register extends Component {
               <div className="container-login100-form-btn mt-2">
                 <PasswordStrengthBar password={this.state.formData.password} />
               </div>
+              {this.state.errors.response && (
+                <div>
+                  <small className="text-danger">
+                    {this.state.errors.response}
+                  </small>
+                </div>
+              )}
               <div className="row col-sm-12 anchor">
                 <span>
                   Already have an account?{" "}

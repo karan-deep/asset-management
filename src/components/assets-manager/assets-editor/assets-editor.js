@@ -23,6 +23,15 @@ class AssetEditor extends Component {
         purchaseDate: false,
       },
     };
+    this.isFormSubmitted = false;
+    this.onSaveAsset = this.onSaveAsset.bind(this);
+    this.onValueChange = this.onValueChange.bind(this);
+    this.validatingInput = this.validatingInput.bind(this);
+    this.resetFormValidation = this.resetFormValidation.bind(this);
+    this.checkGetAssetOperationType = this.checkGetAssetOperationType.bind(
+      this
+    );
+  }
 
   checkGetAssetOperationType() {
     if (this.props.type === "Edit") {

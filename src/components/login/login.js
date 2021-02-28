@@ -161,6 +161,14 @@ class Login extends Component {
                   </small>
                 </div>
               )}
+              <div className="row col-sm-12 anchor">
+                <span>
+                  Don't have an account?{" "}
+                  <Link to="/register" className="anchor">
+                    Register here
+                  </Link>
+                </span>
+              </div>
               <div className="container-login100-form-btn mt-3">
                 <button type="submit" className="login100-form-btn">
                   Login

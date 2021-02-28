@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import validator from "validator";
 import assetService from "../../../services/assets";
 
@@ -135,6 +136,25 @@ class AssetEditor extends Component {
       console.error(error);
     }
   }
+
+  async onSaveAsset(event) {
+    this.isFormSubmitted = true;
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      this.validatingInput();
+    } else {
+      const requestBody = this.state.formData;
+      if (this.props.type === "New") {
+        await assetService.create(requestBody);
+      } else {
+        await assetService.update(this.props.selectedAssetId, requestBody);
+      }
+      this.props.closeAssetModalEditor(true);
+      this.resetFormValidation();
+    }
+  }
+
   render() {
     return <div></div>;
   }

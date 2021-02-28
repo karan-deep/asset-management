@@ -199,6 +199,10 @@ class AssetEditor extends Component {
         size="lg"
         backdrop="static"
         keyboard={false}
+        onHide={() => {
+          this.resetFormValidation();
+          this.props.closeAssetModalEditor(false);
+        }}
       >
         <Form noValidate onSubmit={this.onSaveAsset}>
           <Modal.Header closeButton>

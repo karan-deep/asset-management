@@ -203,6 +203,7 @@ class AssetEditor extends Component {
           this.resetFormValidation();
           this.props.closeAssetModalEditor(false);
         }}
+        onEnter={this.checkGetAssetOperationType}
       >
         <Form noValidate onSubmit={this.onSaveAsset}>
           <Modal.Header closeButton>

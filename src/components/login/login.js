@@ -15,6 +15,13 @@ class Login extends Component {
         password: "",
       },
     };
+    this.isValid = false;
+    this.isFormSubmitted = false;
+    this.onValueChange = this.onValueChange.bind(this);
+    this.validatingInput = this.validatingInput.bind(this);
+    this.onLogin = this.onLogin.bind(this);
+  }
+
   onLogin(event) {
     event.preventDefault();
     this.isFormSubmitted = true;

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import validator from "validator";
+import authService from "../../services/auth";
 import "./login.css";
 
 class Login extends Component {
@@ -13,6 +15,7 @@ class Login extends Component {
       errors: {
         email: "",
         password: "",
+        response: "",
       },
     };
     this.isValid = false;
@@ -22,10 +25,35 @@ class Login extends Component {
     this.onLogin = this.onLogin.bind(this);
   }
 
-  onLogin(event) {
+  async onLogin(event) {
     event.preventDefault();
     this.isFormSubmitted = true;
     this.validatingInput();
+    if (!this.isValid) {
+      this.validatingInput();
+    } else {
+      const requestBody = {
+        username: this.state.formData.email,
+        password: this.state.formData.password,
+      };
+      try {
+        const response = await authService.login(requestBody);
+        if (response && response.data) {
+          authService.isLogin = true;
+          authService.token = response.data.token;
+        }
+      } catch (error) {
+        console.error(error.response);
+        if (error && error.response && error.response.data) {
+          this.setState({
+            errors: {
+              ...this.state.errors,
+              response: error.response.data.message,
+            },
+          });
+        }
+      }
+    }
   }
 
   onValueChange(event) {
@@ -97,6 +125,7 @@ class Login extends Component {
       errors = {
         email: "",
         password: "",
+        response: errors.response,
       };
     }
     this.setState({

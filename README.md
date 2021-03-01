@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Asset Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Steps to access Asset Management
 
-## Available Scripts
+1. Login to your account if already registered through login page.
 
-In the project directory, you can run:
+<img width="1392" alt="Screen Shot 2021-03-01 at 10 35 18 AM" src="https://user-images.githubusercontent.com/77373766/109542626-21681480-7a7a-11eb-8dba-86983e4a2bb6.png">
 
-### `npm start`
+2. Go to register page if you are a new user.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img width="1398" alt="Screen Shot 2021-03-01 at 10 38 40 AM" src="https://user-images.githubusercontent.com/77373766/109542745-55dbd080-7a7a-11eb-8a45-bfee3dd9f903.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. After successfully login, you can manage your assets.
+ 
+<img width="1432" alt="Screen Shot 2021-03-01 at 10 40 08 AM" src="https://user-images.githubusercontent.com/77373766/109543005-a7845b00-7a7a-11eb-9c53-e8c2aab056ce.png">
 
-### `npm test`
+4. To add a asset, click on Add button.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1435" alt="Screen Shot 2021-03-01 at 10 49 09 AM" src="https://user-images.githubusercontent.com/77373766/109544010-de0ea580-7a7b-11eb-8876-0a32f36188a3.png">
 
-### `npm run build`
+<img width="798" alt="Screen Shot 2021-03-01 at 10 40 37 AM" src="https://user-images.githubusercontent.com/77373766/109544030-e4048680-7a7b-11eb-8b24-f317e58f224e.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. To edit a asset, click on Edit button.
+ 
+<img width="1431" alt="Screen Shot 2021-03-01 at 10 52 55 AM" src="https://user-images.githubusercontent.com/77373766/109544380-583f2a00-7a7c-11eb-9557-aa3d44b05b7a.png">
+ 
+ <img width="793" alt="Screen Shot 2021-03-01 at 10 40 49 AM" src="https://user-images.githubusercontent.com/77373766/109544421-65f4af80-7a7c-11eb-949a-05845ed669d9.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. To delete a asset, click on Delete button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1433" alt="Screen Shot 2021-03-01 at 10 55 08 AM" src="https://user-images.githubusercontent.com/77373766/109544651-ac4a0e80-7a7c-11eb-8e92-0ac23b6bc601.png">
 
-### `npm run eject`
+Following these steps, you can manage your assets.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

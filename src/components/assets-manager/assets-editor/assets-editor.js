@@ -4,6 +4,7 @@ import { Modal, Button, Form, Col } from "react-bootstrap";
 import validator from "validator";
 import assetService from "../../../services/assets";
 
+// Class component AssetEditor inheriting React.Component gives the component access to React.Component's functions
 class AssetEditor extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +26,8 @@ class AssetEditor extends Component {
       },
     };
     this.isFormSubmitted = false;
+
+    //Binding functions to access the state of the component
     this.onSaveAsset = this.onSaveAsset.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
     this.validatingInput = this.validatingInput.bind(this);
@@ -34,12 +37,14 @@ class AssetEditor extends Component {
     );
   }
 
+  // Function for checking purpose to open the asset editor modal('New' or 'Edit') and then getting details of asset by the selectedAssetId passed by the parent AssetManger component
   checkGetAssetOperationType() {
     if (this.props.type === "Edit") {
       this.getAssetById(this.props.selectedAssetId);
     }
   }
 
+  //Function for updating the state object that will allow to re-rendering the component. In a call back, when state object is updated then calling validatingInput function only if form is once submitted
   onValueChange(event) {
     const { formData } = this.state;
     this.setState(
@@ -57,6 +62,7 @@ class AssetEditor extends Component {
     );
   }
 
+  // Function for validating the input fields according to their type
   validatingInput() {
     let isValid = true;
     let { formData, errors } = this.state;
@@ -140,6 +146,7 @@ class AssetEditor extends Component {
     });
   }
 
+  // Function for making api call to get one asset details
   async getAssetById(id) {
     try {
       let asset = await assetService.getAsset(id);
@@ -154,6 +161,7 @@ class AssetEditor extends Component {
     }
   }
 
+  // Function for making api call to add or update the asset only if form is validated and then closing the modal and resetting the form
   async onSaveAsset(event) {
     this.isFormSubmitted = true;
     event.preventDefault();
@@ -161,17 +169,22 @@ class AssetEditor extends Component {
     if (!form.checkValidity()) {
       this.validatingInput();
     } else {
-      const requestBody = this.state.formData;
-      if (this.props.type === "New") {
-        await assetService.create(requestBody);
-      } else {
-        await assetService.update(this.props.selectedAssetId, requestBody);
+      try {
+        const requestBody = this.state.formData;
+        if (this.props.type === "New") {
+          await assetService.create(requestBody);
+        } else {
+          await assetService.update(this.props.selectedAssetId, requestBody);
+        }
+        this.props.closeAssetModalEditor(true);
+        this.resetFormValidation();
+      } catch (error) {
+        console.error(error);
       }
-      this.props.closeAssetModalEditor(true);
-      this.resetFormValidation();
     }
   }
 
+  // Function for resetting the form's value and validations
   resetFormValidation() {
     this.isFormSubmitted = false;
     this.setState({

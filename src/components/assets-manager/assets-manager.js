@@ -89,46 +89,48 @@ class AssetManager extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.assets &&
-                    this.state.assets.length &&
-                    this.state.assets.map((asset) => {
-                      return (
-                        <tr key={asset.id}>
-                          <td>{asset.id}</td>
-                          <td>{asset.name}</td>
-                          <td>
-                            {asset.assetTypeId === 1 ? "Hardware" : "Software"}
-                          </td>
-                          <td>{asset.description}</td>
-                          <td>{asset.price}</td>
-                          <td>
-                            {moment(asset.purchaseDate).format("DD MMM,YYYY")}
-                          </td>
-                          <td>
-                            <button
-                              type="button"
-                              className="btn btn-primary"
-                              onClick={() =>
-                                this.openAssetModalEditor("Edit", asset.id)
-                              }
-                            >
-                              Edit
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-danger"
-                              onClick={() => this.deleteAsset(asset.id)}
-                            >
-                              Delete
-                            </button>
-                          </td>
-                        </tr>
-                      );
-                    })}
+                  {(this.state.assets || []).length
+                    ? this.state.assets.map((asset) => {
+                        return (
+                          <tr key={asset.id}>
+                            <td>{asset.id}</td>
+                            <td>{asset.name}</td>
+                            <td>
+                              {asset.assetTypeId === 1
+                                ? "Hardware"
+                                : "Software"}
+                            </td>
+                            <td>{asset.description}</td>
+                            <td>{asset.price}</td>
+                            <td>
+                              {moment(asset.purchaseDate).format("DD MMM,YYYY")}
+                            </td>
+                            <td>
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={() =>
+                                  this.openAssetModalEditor("Edit", asset.id)
+                                }
+                              >
+                                Edit
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={() => this.deleteAsset(asset.id)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    : null}
                 </tbody>
               </table>
             </div>
-            {this.state.assets && !this.state.assets.length && (
+            {!(this.state.assets || []).length && (
               <div className="alert alert-warning" role="alert">
                 No Assets Found!
               </div>

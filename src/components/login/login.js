@@ -46,30 +46,29 @@ class Login extends Component {
     this.isFormSubmitted = true;
     this.validatingInput();
     if (!this.isValid) {
-      this.validatingInput();
-    } else {
-      const requestBody = {
-        username: this.state.formData.email,
-        password: this.state.formData.password,
-      };
-      try {
-        const response = await authService.login(requestBody);
-        if (response && response.data) {
-          authService.isLogin = true;
-          authService.token = response.data.token;
-          localStorage.setItem("token", response.data.token);
-          this.props.history.push("/assets");
-        }
-      } catch (error) {
-        console.error(error.response);
-        if (error && error.response && error.response.data) {
-          this.setState({
-            errors: {
-              ...this.state.errors,
-              response: error.response.data.message,
-            },
-          });
-        }
+      return;
+    }
+    const requestBody = {
+      username: this.state.formData.email,
+      password: this.state.formData.password,
+    };
+    try {
+      const response = await authService.login(requestBody);
+      if (response && response.data) {
+        authService.isLogin = true;
+        authService.token = response.data.token;
+        localStorage.setItem("token", response.data.token);
+        this.props.history.push("/assets");
+      }
+    } catch (error) {
+      console.error(error.response);
+      if (error && error.response && error.response.data) {
+        this.setState({
+          errors: {
+            ...this.state.errors,
+            response: error.response.data.message,
+          },
+        });
       }
     }
   }

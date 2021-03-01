@@ -150,26 +150,26 @@ class Register extends Component {
   async onRegister(event) {
     event.preventDefault();
     this.isFormSubmitted = true;
+    this.validatingInput();
     if (!this.isValid) {
-      this.validatingInput();
-    } else {
-      const requestBody = {
-        username: this.state.formData.email,
-        password: this.state.formData.password,
-      };
-      try {
-        await authService.register(requestBody);
-        this.props.history.push("/login");
-      } catch (error) {
-        console.error(error.response);
-        if (error && error.response && error.response.data) {
-          this.setState({
-            errors: {
-              ...this.state.errors,
-              response: error.response.data.message,
-            },
-          });
-        }
+      return;
+    }
+    const requestBody = {
+      username: this.state.formData.email,
+      password: this.state.formData.password,
+    };
+    try {
+      await authService.register(requestBody);
+      this.props.history.push("/login");
+    } catch (error) {
+      console.error(error.response);
+      if (error && error.response && error.response.data) {
+        this.setState({
+          errors: {
+            ...this.state.errors,
+            response: error.response.data.message,
+          },
+        });
       }
     }
   }

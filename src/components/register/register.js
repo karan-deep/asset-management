@@ -113,24 +113,24 @@ class Register extends Component {
           ...errors,
           confirmPassword: "Password must be at least 6 characters",
         };
-      }
-      if (
-        !validator.isEmpty(password) &&
-        !validator.equals(password, confirmPassword)
-      ) {
-        // validation for matching password
-        this.isValid = false;
-        errors = {
-          ...errors,
-          password: "",
-          confirmPassword: "Password does not match",
-        };
       } else {
-        errors = {
-          ...errors,
-          password: "",
-          confirmPassword: "",
-        };
+        if (
+          !validator.isEmpty(password) &&
+          validator.equals(password, confirmPassword)
+        ) {
+          // validation for matching password
+          errors = {
+            ...errors,
+            password: "",
+            confirmPassword: "",
+          };
+        } else {
+          this.isValid = false;
+          errors = {
+            ...errors,
+            confirmPassword: "Password does not match",
+          };
+        }
       }
     }
     if (this.isValid) {

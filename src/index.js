@@ -15,6 +15,22 @@ axios.interceptors.request.use((request) => {
   return request;
 });
 
+// Intercepting API response and navigating to login page if response status is 401(Unauthorized) or response status is 403(Forbidden)
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (
+      (error && error.response && error.response.status === 403) ||
+      error.response.status === 401
+    ) {
+      return (window.location.href = "/login");
+    }
+    return Promise.reject(error);
+  }
+);
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

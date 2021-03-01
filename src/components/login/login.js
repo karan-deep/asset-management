@@ -4,6 +4,7 @@ import validator from "validator";
 import authService from "../../services/auth";
 import "./login.css";
 
+// Class component Login inheriting React.Component gives the component access to React.Component's functions
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -20,11 +21,14 @@ class Login extends Component {
     };
     this.isValid = false;
     this.isFormSubmitted = false;
+
+    //Binding functions to access the state of the component
     this.onValueChange = this.onValueChange.bind(this);
     this.validatingInput = this.validatingInput.bind(this);
     this.onLogin = this.onLogin.bind(this);
   }
 
+  // React hook using to navigate to the last route path, could be protected route as well if token is present in the local storage
   componentDidMount() {
     if (localStorage.getItem("token")) {
       authService.isLogin = true;
@@ -36,6 +40,7 @@ class Login extends Component {
     }
   }
 
+  // Function for making api call for login authentication only if form is validated, navigating to the assets page and saving token to the local storage
   async onLogin(event) {
     event.preventDefault();
     this.isFormSubmitted = true;
@@ -69,6 +74,7 @@ class Login extends Component {
     }
   }
 
+  //Function for updating the state object that will allow to re-rendering the component. In a call back, when state object is updated then calling validatingInput function only if form is once submitted
   onValueChange(event) {
     const { formData } = this.state;
     this.setState(
@@ -86,6 +92,7 @@ class Login extends Component {
     );
   }
 
+  // Function for validating the input fields according to their type
   validatingInput() {
     this.isValid = true;
     let { formData, errors } = this.state;

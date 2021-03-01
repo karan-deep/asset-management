@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { Modal, Button, Form, Col } from "react-bootstrap";
 import validator from "validator";
@@ -329,5 +330,13 @@ class AssetEditor extends Component {
     );
   }
 }
+
+// Validating prop types
+AssetEditor.propTypes = {
+  show: PropTypes.bool,
+  type: PropTypes.string,
+  selectedAssetId: PropTypes.number,
+  closeAssetModalEditor: PropTypes.func,
+};
 
 export default AssetEditor;

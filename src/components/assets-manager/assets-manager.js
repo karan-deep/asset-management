@@ -4,6 +4,7 @@ import AssetEditor from "./assets-editor/assets-editor";
 import assetService from "../../services/assets";
 import authService from "../../services/auth";
 
+// Class component AssetManager inheriting React.Component gives the component access to React.Component's functions
 class AssetManager extends Component {
   constructor(props) {
     super(props);
@@ -13,15 +14,19 @@ class AssetManager extends Component {
       selectedAssetId: undefined,
       type: "",
     };
+
+    //Binding functions to access the state of the component
     this.openAssetModalEditor = this.openAssetModalEditor.bind(this);
     this.closeAssetModalEditor = this.closeAssetModalEditor.bind(this);
     this.getAllAssets = this.getAllAssets.bind(this);
   }
 
+  // React hook that will call getAllAssets function
   componentDidMount() {
     this.getAllAssets();
   }
 
+  // Function for making api call to get all assets
   async getAllAssets() {
     try {
       const assets = await assetService.getAssets();
@@ -33,6 +38,7 @@ class AssetManager extends Component {
     }
   }
 
+  // Function for making api call to delete asset taking 'id' as a parameter
   async deleteAsset(id) {
     try {
       await assetService.delete(id);
@@ -42,6 +48,7 @@ class AssetManager extends Component {
     }
   }
 
+  // Function for opening modal for asset editor and updating the state object
   openAssetModalEditor(type, selectedAssetId) {
     this.setState({
       show: true,
@@ -50,6 +57,7 @@ class AssetManager extends Component {
     });
   }
 
+  // Function for closing modal for asset editor, updating the state object and refreshing assets list by calling getAllAssets function when user saves any asset in the asset editor
   closeAssetModalEditor(refresh) {
     this.setState({
       show: false,

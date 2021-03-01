@@ -101,7 +101,7 @@ class AssetManager extends Component {
                                 : "Software"}
                             </td>
                             <td>{asset.description}</td>
-                            <td>{asset.price}</td>
+                            <td>${asset.price}</td>
                             <td>
                               {moment(asset.purchaseDate).format("DD MMM,YYYY")}
                             </td>

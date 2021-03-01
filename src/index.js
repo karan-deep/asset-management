@@ -8,8 +8,9 @@ import reportWebVitals from "./reportWebVitals";
 import authService from "./services/auth";
 import axios from "axios";
 
+// Intercepting API request calls and sending token for secured API calls that being used after login
 axios.interceptors.request.use((request) => {
-  if (authService.isLogin) {
+  if (authService.isLogin && authService.token) {
     request.headers.Authorization = `Bearer ${authService.token}`;
   }
   return request;

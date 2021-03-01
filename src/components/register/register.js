@@ -5,6 +5,7 @@ import validator from "validator";
 import authService from "../../services/auth";
 import "../login/login.css";
 
+// Class component Register inheriting React.Component gives the component access to React.Component's functions
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -23,11 +24,14 @@ class Register extends Component {
     };
     this.isFormSubmitted = false;
     this.isValid = false;
+
+    //Binding functions to access the state of the component
     this.onValueChange = this.onValueChange.bind(this);
     this.onRegister = this.onRegister.bind(this);
     this.validatingInput = this.validatingInput.bind(this);
   }
 
+  //Function for updating the state object that will allow to re-rendering the component. In a call back, when state object is updated then calling validatingInput function only if form is once submitted
   onValueChange(event) {
     const { formData } = this.state;
     this.setState(
@@ -45,6 +49,7 @@ class Register extends Component {
     );
   }
 
+  // Function for validating the input fields according to their type
   validatingInput() {
     this.isValid = true;
     let { formData, errors } = this.state;
@@ -141,6 +146,7 @@ class Register extends Component {
     });
   }
 
+  // Function for making api call for register only if form is validated, navigating to the login page again if successful registration is done
   async onRegister(event) {
     event.preventDefault();
     this.isFormSubmitted = true;
